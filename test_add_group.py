@@ -10,7 +10,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
-class TestFirst():
+class Test1234():
   def setup_method(self, method):
     self.driver = webdriver.Firefox()
     self.vars = {}
@@ -18,27 +18,24 @@ class TestFirst():
   def teardown_method(self, method):
     self.driver.quit()
   
-  def test_first(self):
+  def test_1234(self):
     self.driver.get("http://localhost/addressbook/")
-    self.driver.set_window_size(550, 691)
+    #self.driver.set_window_size(1024, 800)
+    self.driver.find_element(By.NAME, "user").click()
     self.driver.find_element(By.NAME, "user").send_keys("admin")
+    self.driver.find_element(By.ID, "content").click()
+    self.driver.find_element(By.NAME, "pass").click()
+    self.driver.find_element(By.NAME, "pass").send_keys("secret")
     self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(7)").click()
-    self.driver.find_element(By.ID, "header").click()
-    self.driver.find_element(By.LINK_TEXT, "add new").click()
-    self.driver.find_element(By.NAME, "firstname").click()
-    self.driver.find_element(By.NAME, "firstname").send_keys("AA")
-    self.driver.find_element(By.NAME, "middlename").click()
-    self.driver.find_element(By.NAME, "middlename").send_keys("s")
-    self.driver.find_element(By.NAME, "lastname").click()
-    self.driver.find_element(By.NAME, "lastname").send_keys("FF")
-    dropdown = self.driver.find_element(By.NAME, "bday")
-    dropdown.find_element(By.XPATH, "//option[. = '10']").click()
-    self.driver.find_element(By.CSS_SELECTOR, "select:nth-child(61) > option:nth-child(12)").click()
-    self.driver.find_element(By.NAME, "bmonth").click()
-    dropdown = self.driver.find_element(By.NAME, "bmonth")
-    dropdown.find_element(By.XPATH, "//option[. = 'February']").click()
-    self.driver.find_element(By.CSS_SELECTOR, "select:nth-child(62) > option:nth-child(3)").click()
-    self.driver.find_element(By.NAME, "byear").click()
-    self.driver.find_element(By.NAME, "byear").send_keys("2015")
-    self.driver.find_element(By.CSS_SELECTOR, "input:nth-child(87)").click()
+    self.driver.find_element(By.LINK_TEXT, "groups").click()
+    self.driver.find_element(By.NAME, "new").click()
+    self.driver.find_element(By.NAME, "group_name").click()
+    self.driver.find_element(By.NAME, "group_name").send_keys("gg1")
+    self.driver.find_element(By.NAME, "group_header").click()
+    self.driver.find_element(By.NAME, "group_header").send_keys("gg11")
+    self.driver.find_element(By.NAME, "group_footer").click()
+    self.driver.find_element(By.NAME, "group_footer").send_keys("gg11")
+    self.driver.find_element(By.CSS_SELECTOR, "#content > form:nth-child(2) > input:nth-child(15)").click()
+    self.driver.find_element(By.LINK_TEXT, "groups").click()
+    self.driver.find_element(By.LINK_TEXT, "Logout").click()
   
